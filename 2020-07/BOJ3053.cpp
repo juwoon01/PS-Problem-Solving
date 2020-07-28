@@ -1,10 +1,12 @@
-#include <stdio.h>
+#include <iostream>
 using namespace::std;
 
 int main(void){
-  float r;
-  scanf("%f", &r);
-  printf("%.6f \n",3.14159265358979323846*r*r);
-  printf("%.6f",2*r*r);
+  int r;
+  cin >> r;
+  cout << fixed;
+  cout.precision(6);
+  cout <<  3.14159265358979323846*r*r<<endl;
+  cout << 2*r*r<<endl;
   return 0;
 }
