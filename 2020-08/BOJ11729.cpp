@@ -1,24 +1,21 @@
 #include <iostream>
-#include <math.h>
-
-
 using namespace::std;
 
-int countMoving(int n){
+void moving(int n, int start, int mid, int end){
   if(n==1){
-    return 1;
+    cout<< start <<' '<< end << '\n';
   }
   else{
-    return pow(2 ,n-1) + countMove(n-1);
+    moving(n-1,start,end,mid);
+    cout<< start <<' '<< end << '\n';
+    moving(n-1,mid,start,end);
   }
 }
 
 int main(void){
   int n;
   cin >> n;
-  cout << countMoving(n) << endl;
-
-
-
+  cout << (1 << n) - 1  << '\n';
+  moving(n,1,2,3);
   return 0;
 }
