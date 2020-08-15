@@ -1,7 +1,27 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace::std;
 
 int main(void){
+  int n;
+  cin >> n;
+  vector<pair<int,int>> v(n);
+
+  for(int i=0;i<n;i++){
+    cin >> v[i].first >> v[i].second;
+  }
+  sort(v.begin(),v.end());
+  for(int i=0;i<n;i++){
+    cout << v[i].first << ' ' << v[i].second << '\n';
+  }
+  return 0;
+}
+
+
+
+  /*int main(void){
   int n;
   cin >> n;
   int xy[n][2];
@@ -37,5 +57,7 @@ int main(void){
   for(int i=0;i<n;i++){
     cout << xy[i][0]<< ' ' << xy[i][1] << '\n';
   }
+
   return 0;
 }
+  */
