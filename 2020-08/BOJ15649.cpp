@@ -3,8 +3,9 @@
 
 using namespace::std;
 int n,m;
-int check[9];
+bool check[9];
 int stack[8];
+
 void dfs(int count){
   if(count==m){
     for(int i=0;i<m;i++){
@@ -26,10 +27,8 @@ void dfs(int count){
 int main(void){
 
   cin >> n >> m;
+  dfs(0);
 
-  for(int i=0;i<n;i++){
-    dfs(i);
-  }
 
 
   return 0;
