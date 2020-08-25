@@ -1,15 +1,29 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 using namespace::std;
+bool compare(string a, string b){
+  if(a.size()==b.size()){
+          return a<b;
+      }else{
+          return a.size()<b.size();
+      }
+  }
+
 
 int main(void){
   int n;
   cin >> n;
-  string arr[n];
-  for(int i=0;i<n;i++){
-    cin >> arr[i];
-  }
+  vector<string> arr;
+  string str;
 
+  for(int i=0;i<n;i++){
+    cin >> str;
+    arr.push_back(str);
+  }
+  sort(arr.begin(),arr.end(),compare);
+/*
   for(int i=0;i<n;i++){
     for(int j=0;j<n-i-1;j++){
 
@@ -30,10 +44,14 @@ int main(void){
 
     }
   }
+*/
+string tmp;
+for(int i=0;i<n;i++){
+     if(tmp==arr[i])continue;
+     cout<<arr[i]<<'\n';
+     tmp=arr[i];
+ }
 
-  for(int i=0;i<n;i++){
-    cout << arr[i] << "\n";
-  }
 
   return 0;
 }
