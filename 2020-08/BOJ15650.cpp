@@ -29,3 +29,19 @@ int main(void){
 
   return 0;
 }
+
+
+
+n,m,f[8];
+b(x,y){
+  int i;
+  for(i=0;i<n;i++){
+    if(!x)
+    printf(f[i]?"%d ":"",i+1);
+    else if(i>y)
+    f[i]=1,b(x-1,i),f[i]=0;
+  }
+}
+main(){
+  scanf("%d%d",&n,&m);b(m,-1);
+}
