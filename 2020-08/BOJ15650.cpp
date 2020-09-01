@@ -30,8 +30,7 @@ int main(void){
   return 0;
 }
 
-
-
+/*
 n,m,f[8];
 b(x,y){
   int i;
@@ -45,3 +44,5 @@ b(x,y){
 main(){
   scanf("%d%d",&n,&m);b(m,-1);
 }
+
+*/
