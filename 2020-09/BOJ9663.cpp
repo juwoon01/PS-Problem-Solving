@@ -3,43 +3,38 @@
 
 using namespace::std;
 int n;
-bool board[15][15];
+int column[15];//열 column[0] = 2 == 1행 2열
+int answer=0;
 
-void impossible(int row,int column){
-  //board[row]=false;
-  board[][column]=false;
+bool impossible(int count){
+  for(int j=0;j<count;j++)
+     {
+         if(column[j] == column[count]/*같은 행인지*/ ||
+            abs(column[count]-column[j]) == (count-j)/*대각선인지*/)
+             return false;
+     }
+     return true;
 }
 
-void dfs(int row,int column){
-  if(column == n-1){
-
-  }else{
-    for(int i=0;i<n;i++){
-      for(int j=0;j<n;j++){
-        if(board[i][j]){
-          impossible(i,j);
-        //  dfs(i,j+1);
-        }
-        else{
-          continue;
-        }
-
-
-      }
-    }
-
-  }
+void dfs(int count){
+  if(count == n)
+       answer += 1;
+   else
+   {
+       for(int row=0;row<n;j++)
+       {
+           column[count] = row;
+           if(impossible(count))
+               dfs(count+1);
+       }
+   }
 }
 
 int main(void){
-
   cin >> n;
-  for(int i=0;i<n;i++){
-    for(int j=0;j<n;j++){
-      board[i][j]=true;
-    }
-  }
-  dfs(0,0);
 
+  dfs(0);
+
+  cout << answer;
   return 0;
 }
