@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 using namespace::std;
 int n;
@@ -21,7 +20,7 @@ void dfs(int count){
        answer += 1;
    else
    {
-       for(int row=0;row<n;j++)
+       for(int row=0;row<n;row++)
        {
            column[count] = row;
            if(impossible(count))
