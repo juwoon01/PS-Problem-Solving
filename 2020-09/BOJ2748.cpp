@@ -17,3 +17,23 @@ int main(void){
 
   return 0;
 }
+/*
+int main(void){
+  long long first=1;
+  long long second=1;
+  int n;
+  scanf("%d",&n);
+
+
+  for(int i=2;i<n;i++){
+    long long tmp=second;
+    second=first+second;
+    first=second;
+  }
+
+  printf("%lld",second);
+
+
+  return 0;
+}
+*/
