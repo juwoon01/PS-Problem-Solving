@@ -31,7 +31,7 @@ int main(void){
         pre[1]=answer[1];
       }
     }
-  
+
     cout << answer[0] <<" "<<answer[1] << "\n";
   }
 
