@@ -26,7 +26,7 @@ bool check[20];
 int N;
 int MIN = 99999999;
 
-void tree(int count){
+void tree(int count, int index){
   vector<int> start;
   vector<int> link;
   int start_score=0;
@@ -55,11 +55,11 @@ void tree(int count){
 
   }
 
-  for(int i=0;i<N;i++){
+  for(int i=index;i<N;i++){
 
     if(!check[i]){
         check[i] = true;
-        tree(count+1);
+        tree(count+1,i);
         check[i] = false;
       }
   }
@@ -76,7 +76,7 @@ int main(void){
     }
   }
 
-  tree(0);
+  tree(0,0);
   cout << MIN;
 
   return 0;
