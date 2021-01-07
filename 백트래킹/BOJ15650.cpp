@@ -1,4 +1,4 @@
-/*https://www.acmicpc.net/problem/15649*/
+/*https://www.acmicpc.net/problem/15650*/
 
 /*
 백트래킹
