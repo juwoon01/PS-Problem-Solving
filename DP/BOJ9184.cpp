@@ -1,4 +1,4 @@
-/*https://www.acmicpc.net/problem/1003*/
+/*https://www.acmicpc.net/problem/9184*/
 /*
 동적계획법
 if a <= 0 or b <= 0 or c <= 0, then w(a, b, c) returns:
