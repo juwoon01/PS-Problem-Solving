@@ -17,7 +17,8 @@
 
 풀이
   1. 모든 경로 탐색
-  2. 왼쪽 대각선 = 이전 index, 오른쪽 대각선= 이전 index+1
+  2. 왼쪽 대각선 = 이전 index, 오른쪽 대각선= 이전 index+1 -> 시간초과
+  3. 동적계획법 사용
 
 */
 
@@ -27,7 +28,8 @@ int tri[500][500];
 int T;
 int MAX = -1;
 int path;
-
+int d[500];
+/*
 void dp(int depth, int index){
   if(depth == T){
     if(path > MAX){
@@ -44,6 +46,16 @@ void dp(int depth, int index){
   }
 
 }
+*///시간초과
+
+int max(int left, int right){
+  if(left > right){
+    return left;
+  }
+  else{
+    return right;
+  }
+}
 
 int main(void){
   int N;
@@ -53,8 +65,20 @@ int main(void){
       cin >> tri[i][j];
     }
   }
-  path+=tri[0][0];
-  dp(1,0);
+  for(int i=0;i<T;i++){
+    for(int j=0;j<=i;j++){
+      if(j == 0){//왼쪽 끝이면
+        tri[i][j] += tri[i-1][j];
+      }
+      else if(j == i){//오른쪽 끝이면
+        tri[i][j] += tri[i-1][j-1];
+      }
+      else{//중간 = 오,왼중 큰값을 더함
+        tri[i][j] += max(tri[i-1][j],tri[i-1][j-1]);
+      }
+      if(MAX < tri[i][j]) MAX = tri[i][j];
+    }
+  }
   cout << MAX;
   return 0;
 }
