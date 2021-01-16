@@ -28,7 +28,7 @@ int tri[500][500];
 int T;
 int MAX = -1;
 int path;
-int d[500];
+int d[500][500];
 /*
 void dp(int depth, int index){
   if(depth == T){
@@ -65,18 +65,20 @@ int main(void){
       cin >> tri[i][j];
     }
   }
-  for(int i=0;i<T;i++){
+
+  d[0][0] = tri[0][0];
+  for(int i=1;i<T;i++){
     for(int j=0;j<=i;j++){
       if(j == 0){//왼쪽 끝이면
-        tri[i][j] += tri[i-1][j];
+        d[i][j] = tri[i][j] + d[i-1][j];
       }
       else if(j == i){//오른쪽 끝이면
-        tri[i][j] += tri[i-1][j-1];
+        d[i][j] = tri[i][j] + d[i-1][j-1];
       }
       else{//중간 = 오,왼중 큰값을 더함
-        tri[i][j] += max(tri[i-1][j],tri[i-1][j-1]);
+        d[i][j] = tri[i][j] + max(d[i-1][j],d[i-1][j-1]);
       }
-      if(MAX < tri[i][j]) MAX = tri[i][j];
+      if(MAX < d[i][j]) MAX = d[i][j];
     }
   }
   cout << MAX;
