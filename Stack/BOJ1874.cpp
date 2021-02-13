@@ -24,7 +24,6 @@ push연산은 +로, pop 연산은 -로 표현하도록 한다.
    2.2 입력값이 next 값보다 크면 -
 */
 
-
 #include <iostream>
 #include <string.h>
 using namespace::std;
